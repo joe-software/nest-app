@@ -13,7 +13,7 @@ export class CarDataCollection {
   model: string;
 
   @Prop()
-  date: Date;
+  date: string;
 
   @Prop()
   colour: string;
