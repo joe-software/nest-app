@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { CreateCarDto } from './dto/create-car.dto';
-// import { get } from 'mongoose';
+
 
 @Controller('cars')
 export class CarsController {
@@ -15,10 +15,13 @@ export class CarsController {
 
     // POST /cars
     @Post('')
-    create(@Body() createCarDto: CreateCarDto ):string {
-        
-        this.carService.create(createCarDto)
-        return (`Successful post request' ${this.carService.findAll()}`)
+    create(@Body() createCarDto: CreateCarDto){
+        return this.carService.create(createCarDto)
+    }
+
+    @Delete('')
+    deleteACar(@Body() body: {}){
+        this.carService.deleteOneCar(body)
     }
 }
 
