@@ -1,0 +1,8 @@
+// to be pasted into /cats - POST body as JSON when testing /post:
+
+{
+  "brand": "A testing brand",
+  "model": "A model name",
+  "date": "A data",
+  "colour": "A colour - hex code"
+}
