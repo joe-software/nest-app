@@ -37,4 +37,15 @@ export class CarsService {
                 let deleteId: string = requestId['mongoid']
                 return this.carModel.findByIdAndDelete(deleteId)
           }
+
+          async updateOneCar(requestCarData): Promise<string> {
+            let deleteId: string = requestCarData['mongoid']
+            let updateCarData: CarDataInterface = {
+                'brand': requestCarData.brand,
+                'model': requestCarData.model,
+                'date': requestCarData.date,
+                'colour': requestCarData.colour
+            }
+            return this.carModel.findByIdAndUpdate(deleteId, updateCarData)
+      }
 }

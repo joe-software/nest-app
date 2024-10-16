@@ -1,8 +1,24 @@
 // to be pasted into /cats - POST body as JSON when testing /post:
 
 {
-  "brand": "A testing brand",
+  "brand": "Testing post feature",
   "model": "A model name",
   "date": "A data",
   "colour": "A colour - hex code"
+}
+
+// to be pasted into /cats - DELETE body as JSON when testing /post:
+// will need to retrieve mongo id from /cars GET request, see above
+{
+  "mongoid": "**" 
+}
+
+// to be pasted into /cats - PUT body as JSON when testing /put:
+// will need to retrieve mongo id from /cars GET request, see above
+{
+  "brand": "Testing put feature",
+  "model": "A model name",
+  "date": "A data",
+  "colour": "A colour - hex code",
+  "mongoid": "**" 
 }
