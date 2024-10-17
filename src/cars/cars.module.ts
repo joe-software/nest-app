@@ -11,6 +11,7 @@ dotenv.config();
 const uri = process.env.DBSTRING
 
 @Module({
+  //import mongoose/scheme data into the module and relevant controllers and providers
   imports: [ConfigModule.forRoot(), MongooseModule.forRoot(uri), MongooseModule.forFeature([{name: CarDataCollection.name, schema: CarSchema}])],
   controllers: [CarsController],
   providers: [CarsService]
