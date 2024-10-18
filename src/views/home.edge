@@ -12,6 +12,7 @@
 
 </head>
 <body>
+  <a href="/cars/delete"><h1>delete an entry</h1></a>
   <h1>Input data relating to your favourite car:</h1>
     <form method="POST" action="/cars/car-post">
         <label for="car-brand-input">Brand</label>
@@ -59,15 +60,10 @@
           <input type="submit" class="update-post" value="Update">
           </form>          
           </div>
-          <form method="POST" action="/cars/car-delete">
-          <input  name="mongoid" type="hidden" value="{{car._id}}">
-          <input  type="Submit" class="delete-post" value="Delete Post">
-          </form>
         </div> 
       @end
     </div>
 
 
 </body>
-<script type="text/javascript"  src="publicjs.js"></script>
 </html>
