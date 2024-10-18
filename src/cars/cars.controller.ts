@@ -24,7 +24,7 @@ return {carData: returnData}
 
 // Get request - /cars
 @Get('delete')
-// render home.edge - within /src/views - views path added in main.ts
+// render delete.edge - within /src/views - views path added in main.ts
 @Render('delete')
 async test() {
 // route to service and await response (all entries in db) - then include as data sent to view

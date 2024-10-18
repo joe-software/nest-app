@@ -12,6 +12,7 @@ async function bootstrap() {
   const edge = new Edge()
   // edge.mount(join(__dirname, '..', './src/views'))
     app.setBaseViewsDir(join(__dirname, '..', '/src/views'));
+    app.useStaticAssets(join(__dirname, '..', '/src/public'));
     app.engine('edge', (path, options, callback) =>
     edge
       .render(path, options)
@@ -19,10 +20,6 @@ async function bootstrap() {
       .then((rendered) => callback(null, rendered))
   );
   app.setViewEngine('edge')
-
-  app.useStaticAssets(join(__dirname, '..', '/src/public'));
-  // app.setBaseViewsDir(join(__dirname, '..', '/src/views'));
-  // app.setViewEngine('edge');
   await app.listen(process.env.PORT || 3000);
   
 }
