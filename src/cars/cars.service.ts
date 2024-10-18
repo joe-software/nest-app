@@ -26,14 +26,15 @@ export class CarsService {
             // service which takes input data from @body and creates an object which is then saved as new data in db 
             async create(reqCarData): Promise<CarDataCollection> {
                 let inputCarData: CarDataInterface = {
-                    'brand': reqCarData.brand,
-                    'model': reqCarData.model,
-                    'date': reqCarData.date,
-                    'colour': reqCarData.colour
+                    'brand': reqCarData['car-brand-input'],
+                    'model': reqCarData['car-model-input'],
+                    'date': reqCarData['car-year-input'],
+                    'colour': reqCarData['car-colour-input']
                 }
                 const createdCar = new this.carModel(inputCarData);
                 return createdCar.save();
           }
+
 
           // service which takes input data from @body and deletes a data entry from db which matches the @body mongoid value 
           async deleteOneCar(requestId): Promise<string> {
@@ -42,13 +43,13 @@ export class CarsService {
           }
 
           // service which creates a new data object from @body - then matches @body mongoid with db, and replaces existing db data for entry with new data object
-          async updateOneCar(requestCarData): Promise<string> {
-            let putId: string = requestCarData['mongoid']
+          async updateOneCar(reqCarData): Promise<string> {
+            let putId: string = reqCarData['mongoid']
             let updateCarData: CarDataInterface = {
-                'brand': requestCarData.brand,
-                'model': requestCarData.model,
-                'date': requestCarData.date,
-                'colour': requestCarData.colour
+                'brand': reqCarData['car-brand-update'],
+                'model': reqCarData['car-model-update'],
+                'date': reqCarData['car-year-update'],
+                'colour': reqCarData['car-colour-update']
             }
             return this.carModel.findByIdAndUpdate(putId, updateCarData)
       }

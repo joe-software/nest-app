@@ -22,23 +22,23 @@ await this.carService.findAll().then( (data) => {
 return {carData: returnData}
 }
 
-    // Post request - /cars
-    @Post('')
-    // route to service and include req.body as param
-    addACar(@Body() createCarDto: CreateCarDto){
-        return this.carService.create(createCarDto)
-    }
 
-    // Delete request - /cars
-    @Delete('')
-    // route to service and include req.body as param
+    // POST /cars/car-post
+    @Post('car-post')
+    @Render('successful-post')
+    addACar(@Body() createCarDto: CreateCarDto){
+        this.carService.create(createCarDto)
+ }
+        
+
+    @Post('car-delete')
+    @Render('successful-post')
     deleteACar(@Body() body: {}){
         this.carService.deleteOneCar(body)
     }
 
-    // Put request - /cars   
-    @Put('')
-    // route to service and include req.body as param
+    @Post('car-update')
+    @Render('successful-post')
     updateACar(@Body() body: {}){
         this.carService.updateOneCar(body)
     }
