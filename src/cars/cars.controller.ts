@@ -22,6 +22,19 @@ await this.carService.findAll().then( (data) => {
 return {carData: returnData}
 }
 
+// Get request - /cars
+@Get('delete')
+// render home.edge - within /src/views - views path added in main.ts
+@Render('delete')
+async test() {
+// route to service and await response (all entries in db) - then include as data sent to view
+let returnData
+await this.carService.findAll().then( (data) => {
+    returnData = data
+})
+return {carData: returnData}
+}
+
 
     // POST /cars/car-post
     @Post('car-post')
