@@ -59,25 +59,7 @@
           <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>
           <li class="list-group-item"><span class="bold">Car Date:</span>  {{car.date}}</li>
           <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{car.colour}}" id="colour-patch"></div> </li>
-        </ul>
-
-          <form method="POST" action="/cars/car-update">
-          <label for="car-brand-update">Update brand</label>
-          <input id="car-brand-update{{index}}" name="car-brand-update" type="text" value="{{car.brand}}">
-  
-          <label for="car-model-update">Update model</label>
-          <input id="car-model-update{{index}}" name="car-model-update" type="text" value="{{car.model}}">
-  
-          <label for="car-date-update">Update date</label>
-          <input id="car-date-update{{index}}" name="car-date-update" type="date" value="{{car.date}}">
-  
-          <label for="car-colour-update">Update Colour</label>
-          <input id="car-colour-update{{index}}" name="car-colour-update" type="color" value="{{car.colour}}">
-
-          <input  name="mongoid" type="hidden" value="{{car._id}}">
-
-          <input type="submit" class="update-post" value="Update">
-          </form>   
+        </ul> 
         </div>
         </div> 
       @end

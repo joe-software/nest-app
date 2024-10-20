@@ -48,7 +48,7 @@ export class CarsService {
             let updateCarData: CarDataInterface = {
                 'brand': reqCarData['car-brand-update'],
                 'model': reqCarData['car-model-update'],
-                'date': reqCarData['car-year-update'],
+                'date': reqCarData['car-date-update'],
                 'colour': reqCarData['car-colour-update']
             }
             return this.carModel.findByIdAndUpdate(putId, updateCarData)

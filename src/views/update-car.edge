@@ -30,54 +30,48 @@
   </nav>
 
   <h1>Update car data</h1>
-  <h2>Use links at top of page to view edit options</h2>
-    <form method="POST" action="/cars/car-post">
-        <label for="car-brand-input">Brand</label>
-        <input id="car-brand-input" name="car-brand-input" type="text">
-
-        <label for="car-model-input">Model</label>
-        <input id="car-model-input" name="car-model-input" type="text">
-
-        <label for="car-year-input">Year</label>
-        <input id="car-year-input" name="car-year-input" type="date">
-        
-        <label for="car-colour-input">Colour</label>
-        <input id="car-colour-input" name="car-colour-input" type="color">
-       
-        <input id="submit-car-data" type="submit" value="Click here to submit">
-      
-      
-    </form>
 
 <div class="container-fluid">
   <div class="row">
      @each((car, index) in carData)
     <div class="col-md-4">
       <div class="my-2 p-1 card primary">
+        <form method="POST" action="/cars/car-update">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="bold">Car Brand:</span> {{car.brand}}</li>
+
+          <li class="list-group-item"><span class="bold">Car Brand:</span> {{car.brand}} </li>
+          <li class="list-group-item">
+            <span class="bold">
+              <label for="car-brand-update">Update car brand:</label>
+              <input name="car-brand-update" type="text" value="{{car.brand}}">
+          </li>
+
           <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>
+          <li class="list-group-item">
+            <span class="bold">
+              <label for="car-brand-update">Update car model:</label>
+              <input  name="car-model-update" type="text" value="{{car.model}}">
+          </li>
+
           <li class="list-group-item"><span class="bold">Car Date:</span>  {{car.date}}</li>
+          <li class="list-group-item">
+            <span class="bold">
+              <label for="car-brand-update">Update car date:</label>
+              <input  name="car-date-update" type="date" value="{{car.date}}">
+          </li>
+          
           <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{car.colour}}" id="colour-patch"></div> </li>
-        </ul>
 
-          <form method="POST" action="/cars/car-update">
-          <label for="car-brand-update">Update brand</label>
-          <input id="car-brand-update{{index}}" name="car-brand-update" type="text" value="{{car.brand}}">
-  
-          <label for="car-model-update">Update model</label>
-          <input id="car-model-update{{index}}" name="car-model-update" type="text" value="{{car.model}}">
-  
-          <label for="car-date-update">Update date</label>
-          <input id="car-date-update{{index}}" name="car-date-update" type="date" value="{{car.date}}">
-  
-          <label for="car-colour-update">Update Colour</label>
-          <input id="car-colour-update{{index}}" name="car-colour-update" type="color" value="{{car.colour}}">
-
+          <li class="list-group-item">
+            <span class="bold">
+              <label for="car-brand-update">Update car colour:</label>
+              <input  name="car-colour-update" type="color" value="{{car.colour}}">
+          </li>
           <input  name="mongoid" type="hidden" value="{{car._id}}">
 
-          <input type="submit" class="update-post" value="Update">
-          </form>   
+        </ul>
+        <input type="submit" class="update-post" value="Update">
+      </form>  
         </div>
         </div> 
       @end
