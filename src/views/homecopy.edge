@@ -32,12 +32,11 @@
       
       
     </form>
-
-<div class="container-fluid">
-  <div class="row">
+    
+     
+<div class="card-cont">
      @each((car, index) in carData)
-    <div class="col-md-4 ">
-      <div class="mb-4 card">
+    <div class="car-data-card-cont">
         <p><span class="bold">Car Brand:</span> {{car.brand}} </p> 
         <p><span class="bold">Car Model:</span>  {{car.model}} </p>
         <p><span class="bold">Car Date:</span>  {{car.date}} </p>
@@ -62,10 +61,8 @@
           <input type="submit" class="update-post" value="Update">
           </form>          
           </div>
-        </div>
         </div> 
       @end
-    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
