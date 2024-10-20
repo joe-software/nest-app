@@ -32,14 +32,14 @@
     </div>
   </nav>
 
-  <h1>All Car Data</h1>
-  <h2>Use links at top of page to view edit options</h2>
   
 <div class="container-fluid">
+  <h1>All Car Data</h1>
+  <h2>Use links at top of page to view edit options</h2>
   <div class="row">
      @each((car, index) in carData)
     <div class="col-md-4">
-      <div class="my-2 p-1 card primary">
+      <div class="my-2 p-1 card bg-light">
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><span class="bold">Car Brand:</span> {{car.brand}}</li>
           <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>

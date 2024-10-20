@@ -32,13 +32,13 @@
     </div>
   </nav>
 
-  <h1>Update car data</h1>
 
-<div class="container-fluid">
+<div class="container">
+  <h1>Update car data</h1>
   <div class="row">
      @each((car, index) in carData)
     <div class="col-md-4">
-      <div class="my-2 p-1 card primary">
+      <div class="my-2 p-1 card bg-light">
         <form method="POST" action="/cars/car-update">
         <ul class="list-group list-group-flush">
 
@@ -71,9 +71,10 @@
               <input  name="car-colour-update" type="color" value="{{car.colour}}">
           </li>
           <input  name="mongoid" type="hidden" value="{{car._id}}">
+          <input type="submit" class="mx-3 m-2" value="Update Post">
 
         </ul>
-        <input type="submit" class="update-post" value="Update">
+        
       </form>  
         </div>
         </div> 

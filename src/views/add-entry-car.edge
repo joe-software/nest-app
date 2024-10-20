@@ -32,11 +32,16 @@
     </div>
   </nav>
 
-  <h1>Add new car data</h1>
-   
-    <form method="POST" action="/cars/car-post">
-      <ul class="list-group list-group-flush">
+   <div class="container">
+    <h1>Add new car data</h1>
 
+    <div class="row">
+
+      <div class="col-lg-5 card px-3">
+
+    <form method="POST" action="/cars/car-post">
+
+      <ul class="list-group list-group-flush">
         <li class="list-group-item form-label">
           <span class="bold">Add car brand:</span>
           <label for="car-brand-input"></label>
@@ -62,11 +67,18 @@
           <span class="bold">Add car Colour:</span>
           <label for="car-colour-input"></label>
           <input id="car-colour-input" class="form-control" name="car-colour-input" type="color"> </li>
+
+          <li class="list-group-item form-label"> 
+            <input id="submit-car-data" type="submit" value="Click here to submit">
+          </li>
+         
        
       </ul>
-      <input id="submit-car-data" type="submit" value="Click here to submit">
-    </form>  
       
+    </form> 
+  </div> 
+  </div>
+  </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
