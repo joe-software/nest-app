@@ -1,12 +1,11 @@
 body{
     font-family: "Roboto", sans-serif;
-    COLOR: #3d52a0;
+    color: #3d52a0;
     background-color: #EDE8F5;
 }
 P{
-    font-size: 20PX;;
+    font-size: 20px;
 }
-
 
 #colour-patch{
     height: 100px;
@@ -15,31 +14,18 @@ P{
     border-radius: 10px;
 }
 
-.card-cont{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+
+#colour-patch{
+    border: 5px solid #7091e6;
 }
+
+
 
 .car-data-card-cont{
     border: 5px solid #7091e6;
-    border-radius: 10px;
-    margin: 10px 5px;
-    padding: 10px 5px;
-    width: 30%;
     background-color: #ADBBDA;
 }
 
-.update-cont{
-    display: flex;
-    flex-wrap: nowrap; 
-    flex-direction: column;  
-    border: 3px solid #7091e6;
-    padding: 10px 20px 10px 5px;
-    margin: 10px 5px;
-    border-radius: 10px;
-}
 
 .bold{
     font-weight: bold;
