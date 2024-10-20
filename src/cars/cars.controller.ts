@@ -29,6 +29,14 @@ let data = await this.carService.findAll()
 return {carData: data}
 }
 
+// Get request - /cars/add-car
+@Get('add')
+// render add-entry-car.edge - within /src/views - views path added in main.ts
+@Render('add-entry-car')
+emptyFunction(): undefined{
+
+}
+
 // Get request - /cars/update-car
 @Get('update')
 // render delete.edge - within /src/views - views path added in main.ts

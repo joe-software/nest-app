@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Car Data Home Page</title>
+    <title>NEST-APP</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,25 +32,42 @@
     </div>
   </nav>
 
-  <h1>All Car Data</h1>
-  <h2>Use links at top of page to view edit options</h2>
-  
-<div class="container-fluid">
-  <div class="row">
-     @each((car, index) in carData)
-    <div class="col-md-4">
-      <div class="my-2 p-1 card primary">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="bold">Car Brand:</span> {{car.brand}}</li>
-          <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>
-          <li class="list-group-item"><span class="bold">Car Date:</span>  {{car.date}}</li>
-          <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{car.colour}}" id="colour-patch"></div> </li>
-        </ul> 
-        </div>
-        </div> 
-      @end
-    </div>
-    </div>
+  <h1>Add new car data</h1>
+   
+    <form method="POST" action="/cars/car-post">
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item form-label">
+          <span class="bold">Add car brand:</span>
+          <label for="car-brand-input"></label>
+          <input id="car-brand-input" class="form-control" name="car-brand-input" type="text" placeholder="Type here to add car brand...">
+        </li>
+        
+
+        <li class="list-group-item form-label">
+          <span class="bold">Add car Model:</span>   
+          <label for="car-model-input"></label>
+          <input id="car-model-input" class="form-control" name="car-model-input" type="text" placeholder="Type here to add car model...">
+        </li>
+        
+
+        <li class="list-group-item form-label">
+          <span class="bold">Add car Date:</span>  
+          <label for="car-year-input"></label>
+          <input id="car-year-input" class="form-control" name="car-year-input" type="date" >
+        </li>
+        
+        
+        <li class="list-group-item form-label">
+          <span class="bold">Add car Colour:</span>
+          <label for="car-colour-input"></label>
+          <input id="car-colour-input" class="form-control" name="car-colour-input" type="color"> </li>
+       
+      </ul>
+      <input id="submit-car-data" type="submit" value="Click here to submit">
+    </form>  
+      
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
