@@ -16,7 +16,7 @@ export class UserDataCollection {
   bio: string;
 
   @Prop()
-  permissions: string;
+  permission: string;
 
   @Prop()
   mongoid: string;

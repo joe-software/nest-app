@@ -13,12 +13,12 @@
   "mongoid": "**" 
 }
 
-// to be pasted into /cats - PUT body as JSON when testing /put:
-// will need to retrieve mongo id from /cars GET request, see above
+
+// to be pasted into /users/user-post - POST body as JSON when testing /post:
+
 {
-  "brand": "Testing put feature",
-  "model": "A model name",
-  "date": "A data",
-  "colour": "A colour - hex code",
-  "mongoid": "**" 
+  "user-username-input": "test1",
+  "user-ago-input": 99,
+  "user-bio-input": "all about me",
+  "user-permission-input": "manager"
 }
