@@ -21,6 +21,12 @@ export class UsersController {
         return {status: 'added'}
  }
 
+    @Post('user-delete')
+    deleteAUser(@Body() body: {}){
+        this.userService.deleteOneUser(body)
+        return {status: 'deleted'}
+    }
+
             
     
 }

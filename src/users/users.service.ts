@@ -34,4 +34,10 @@ export class UsersService {
         const createdUser = new this.userModel(inputUserData);
         return createdUser.save();
     }
+
+    // service which takes input data from @body and deletes a data entry from db which matches the @body mongoid value 
+    async deleteOneUser(requestId): Promise<string> {
+    let deleteId: string = requestId['mongoid']
+    return this.userModel.findByIdAndDelete(deleteId)
+  }
   }
