@@ -6,9 +6,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('') 
-   getCarData(): {} {
-
-    return 'route for / does not return, try /cars'
+  @Render('home-app')
+   getCarData(): undefined{
   }
 
   }
