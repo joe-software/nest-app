@@ -8,17 +8,23 @@ export class UsersController {
     constructor(private readonly userService: UsersService){}
     // Get request - /cars
     @Get()
+    @Render('home-user')
     async root() {
     // route to service and await response (all entries in db) - then include as data sent to view
     let data = await this.userService.findAll()
-    return {carData: data}
+    return {userData: data}
     }
 
+    @Get('add')
+    @Render('add-entry-user')
+    emptyFunction(){
+        return
+    }
 
     @Post('user-post')
     addAUser(@Body() createUserDto: CreateUserDto){
         this.userService.create(createUserDto)
-        return {status: 'added'}
+        return {createUserDto}
  }
 
     @Post('user-delete')
