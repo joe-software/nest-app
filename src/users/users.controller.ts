@@ -27,6 +27,12 @@ export class UsersController {
         return {status: 'deleted'}
     }
 
+    @Post('user-update')
+    updateAUser(@Body() CreateUserDto: CreateUserDto){
+        this.userService.updateOneUser(CreateUserDto)
+        return  {status: 'updated'}
+    }
+
             
     
 }

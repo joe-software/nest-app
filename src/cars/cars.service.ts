@@ -37,13 +37,13 @@ export class CarsService {
 
 
           // service which takes input data from @body and deletes a data entry from db which matches the @body mongoid value 
-          async deleteOneCar(requestId): Promise<string> {
+          async deleteOneCar(requestId): Promise<CarDataCollection> {
                 let deleteId: string = requestId['mongoid']
                 return this.carModel.findByIdAndDelete(deleteId)
           }
 
           // service which creates a new data object from @body - then matches @body mongoid with db, and replaces existing db data for entry with new data object
-          async updateOneCar(reqCarData): Promise<string> {
+          async updateOneCar(reqCarData): Promise<CarDataCollection> {
             let putId: string = reqCarData['mongoid']
             let updateCarData: CarDataInterface = {
                 'brand': reqCarData['car-brand-update'],

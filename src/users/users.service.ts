@@ -40,4 +40,15 @@ export class UsersService {
     let deleteId: string = requestId['mongoid']
     return this.userModel.findByIdAndDelete(deleteId)
   }
+
+  async updateOneUser(reqUserData): Promise<UserDataCollection> {
+    let putId: string = reqUserData['mongoid']
+    let updateUserData: UserDataInterface = {
+        'username': reqUserData['user-username-input'],
+        'age': reqUserData['user-age-input'],
+        'bio': reqUserData['user-bio-input'],
+        'permission': reqUserData['user-permission-input']
+    }
+    return this.userModel.findByIdAndUpdate(putId, updateUserData)
+}
   }
