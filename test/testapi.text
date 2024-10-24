@@ -7,7 +7,7 @@
   "colour": "A colour - hex code"
 }
 
-// to be pasted into /cats - DELETE body as JSON when testing /post:
+// to pasted into /cats - DELETE body as JSON when testing /post:
 // will need to retrieve mongo id from /cars GET request, see above
 {
   "mongoid": "**" 
