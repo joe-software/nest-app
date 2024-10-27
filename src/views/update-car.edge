@@ -29,12 +29,6 @@
         <li class="nav-item">
           <a class="nav-link navbar-brand border" href="/cars/add">Add Car Data</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/cars/update">Change Car Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/cars/delete">Delete Car Data</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -43,51 +37,46 @@
 <div class="container">
   <h1>Update car data</h1>
   <p class="text-danger">Please do not include any real data, this is a test project and the data is public</p>
-  <div class="row">
-     @each((car, index) in carData)
-    <div class="col-md-4">
+  
       <div class="my-2 p-1 card bg-light">
         <form method="POST" action="/cars/car-update">
         <ul class="list-group list-group-flush">
 
-          <li class="list-group-item"><span class="bold">Car Brand:</span> {{car.brand}} </li>
+          <li class="list-group-item"><span class="bold">Car Brand:</span> {{carData.brand}} </li>
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car brand:</label>
-              <input name="brand" type="text" value="{{car.brand}}">
+              <input name="brand" type="text" value="{{carData.brand}}">
           </li>
 
-          <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>
+          <li class="list-group-item"><span class="bold">Car Model:</span>  {{carData.model}}</li>
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car model:</label>
-              <input  name="model" type="text" value="{{car.model}}">
+              <input  name="model" type="text" value="{{carData.model}}">
           </li>
 
-          <li class="list-group-item"><span class="bold">Car Date:</span>  {{car.date}}</li>
+          <li class="list-group-item"><span class="bold">Car Date:</span>  {{carData.date}}</li>
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car date:</label>
-              <input  name="date" type="date" value="{{car.date}}">
+              <input  name="date" type="date" value="{{carData.date}}">
           </li>
           
-          <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{car.colour}}" id="colour-patch"></div> </li>
+          <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{carData.colour}}"></div> </li>
 
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car colour:</label>
-              <input  name="colour" type="color" value="{{car.colour}}">
+              <input  name="colour" type="color" value="{{carData.colour}}">
           </li>
-          <input  name="id" type="hidden" value="{{car.id}}">
+          <input  name="id" type="hidden" value="{{carData.id}}">
           <input type="submit" class="mx-3 m-2" value="Update Post">
 
         </ul>
         
       </form>  
         </div>
-        </div> 
-      @end
-    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

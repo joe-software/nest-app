@@ -29,12 +29,7 @@
         <li class="nav-item">
           <a class="nav-link navbar-brand border" href="/cars/add">Add Car Data</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/cars/update">Change Car Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/cars/delete">Delete Car Data</a>
-        </li>
+       
       </ul>
     </div>
   </nav>
@@ -53,6 +48,10 @@
           <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>
           <li class="list-group-item"><span class="bold">Car Date:</span>  {{car.date}}</li>
           <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{car.colour}}" id="colour-patch"></div> </li>
+          <li class="list-group-item">
+          <a href="/cars/delete?id={{car.id}}"><button>Delete</button></a>
+          <a href="/cars/update?id={{car.id}}"><button>Update</button></a>
+          </li>
         </ul> 
         </div>
         </div> 

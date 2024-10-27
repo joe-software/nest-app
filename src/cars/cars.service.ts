@@ -29,14 +29,19 @@ export class CarsService {
              
           }
 
-          // service which takes input data from @body and deletes a data entry from db which matches the @body mongoid value 
-          async deleteOneCar(requestId): Promise <Car>{
+          // service which takes input data from @body aconfignd deletes a data entry from db which matches the @body mongoid value 
+          async deleteOneCar(requestId: {}): Promise <Car>{
                 let dataId: number = Number(requestId['id'])
                 return this.prisma.car.delete({where: {id:dataId}})
           }
 
+          async findCarById(requestId: {}){
+            let dataId: number = Number(requestId['id'])
+                return this.prisma.car.findUnique({where: {id:dataId}})
+          }
+
           // service which creates a new data object from @body - then matches @body mongoid with db, and replaces existing db data for entry with new data object
-          async updateOneCar(reqCarData) {
+          async updateOneCar(reqCarData: {}) {
             reqCarData['id'] = Number(reqCarData['id'])
             let dataId: number = reqCarData['id']
             return this.prisma.car.update({data: reqCarData, where: {id:dataId}})

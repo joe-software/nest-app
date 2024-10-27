@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Put, Body, Render } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Put, Body, Render, Param, Query, ConsoleLogger } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { CreateCarDto } from './dto/create-car.dto';
 
@@ -19,15 +19,6 @@ let data = await this.carService.findAll()
 return {carData: data}
 }
 
-// Get request - /cars/delete-car
-@Get('delete')
-// render delete.edge - within /src/views - views path added in main.ts
-@Render('delete-car')
-async deleteCarView() {
-// route to service and await response (all entries in db) - then include as data sent to view
-let data = await this.carService.findAll()
-return {carData: data}
-}
 
 // Get request - /cars/add-car
 @Get('add')
@@ -41,13 +32,21 @@ emptyFunction(): undefined{
 @Get('update')
 // render delete.edge - within /src/views - views path added in main.ts
 @Render('update-car')
-async updateCarView() {
+async updateCarView(@Query() query: {}) {
 // route to service and await response (all entries in db) - then include as data sent to view
-let data = await this.carService.findAll()
+let data = await this.carService.findCarById(query)
 return {carData: data}
 }
 
-
+//Get request - /cars/delete-car
+@Get('delete')
+// render delete.edge - within /src/views - views path added in main.ts
+@Render('delete-car')
+async deleteCarView(@Query() query: {}) {
+// route to service and await response (car data matching id) - then include as data sent to view
+let data = await this.carService.findCarById(query)
+return {carData: data}
+}
 
 
     // POST /cars/car-post
