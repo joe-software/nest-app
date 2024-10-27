@@ -54,21 +54,21 @@
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car brand:</label>
-              <input name="car-brand-update" type="text" value="{{car.brand}}">
+              <input name="brand" type="text" value="{{car.brand}}">
           </li>
 
           <li class="list-group-item"><span class="bold">Car Model:</span>  {{car.model}}</li>
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car model:</label>
-              <input  name="car-model-update" type="text" value="{{car.model}}">
+              <input  name="model" type="text" value="{{car.model}}">
           </li>
 
           <li class="list-group-item"><span class="bold">Car Date:</span>  {{car.date}}</li>
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car date:</label>
-              <input  name="car-date-update" type="date" value="{{car.date}}">
+              <input  name="date" type="date" value="{{car.date}}">
           </li>
           
           <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{car.colour}}" id="colour-patch"></div> </li>
@@ -76,9 +76,9 @@
           <li class="list-group-item">
             <span class="bold">
               <label for="car-brand-update">Update car colour:</label>
-              <input  name="car-colour-update" type="color" value="{{car.colour}}">
+              <input  name="colour" type="color" value="{{car.colour}}">
           </li>
-          <input  name="mongoid" type="hidden" value="{{car._id}}">
+          <input  name="id" type="hidden" value="{{car.id}}">
           <input type="submit" class="mx-3 m-2" value="Update Post">
 
         </ul>
