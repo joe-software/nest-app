@@ -1,7 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { UserDataCollection } from 'src/users/schemas/user.schema';
 
 // create interface to be used when creating user data objects from request data
 interface UserDataInterface {
@@ -15,33 +12,32 @@ interface UserDataInterface {
 @Injectable()
 export class UsersService {
     // include mongoose/schema information within class
-    constructor(@InjectModel(UserDataCollection.name) private userModel: Model<UserDataCollection>){}
+    // constructor(@InjectModel(UserDataCollection.name) private userModel: Model<UserDataCollection>){}
+    constructor(){}
 
     // service which requests and returns all user data from db - async so doesnt stop other processes and can wait for response and promise representsa the eventual completion
-    async findAll(): Promise<UserDataCollection[]> {
-        return this.userModel.find().exec();
+    async findAll() {
     
       }
     
     // service which takes input data from @body and creates an object which is then saved as new data in db 
-    async create(reqUserData): Promise<UserDataCollection> {
+    async create(reqUserData) {
         let inputUserData: UserDataInterface = {
             'username': reqUserData['user-username-input'],
             'age': reqUserData['user-age-input'],
             'bio': reqUserData['user-bio-input'],
             'permission': reqUserData['user-permission-input']
         }
-        const createdUser = new this.userModel(inputUserData);
-        return createdUser.save();
+   
     }
 
     // service which takes input data from @body and deletes a data entry from db which matches the @body mongoid value 
-    async deleteOneUser(requestId): Promise<string> {
+    async deleteOneUser(requestId) {
     let deleteId: string = requestId['mongoid']
-    return this.userModel.findByIdAndDelete(deleteId)
+   
   }
 
-  async updateOneUser(reqUserData): Promise<UserDataCollection> {
+  async updateOneUser(reqUserData){
     let putId: string = reqUserData['mongoid']
     let updateUserData: UserDataInterface = {
         'username': reqUserData['user-username-input'],
@@ -49,6 +45,5 @@ export class UsersService {
         'bio': reqUserData['user-bio-input'],
         'permission': reqUserData['user-permission-input']
     }
-    return this.userModel.findByIdAndUpdate(putId, updateUserData)
 }
   }
