@@ -38,7 +38,8 @@ export class CarsService {
 
           // service which creates a new data object from @body - then matches @body mongoid with db, and replaces existing db data for entry with new data object
           async updateOneCar(reqCarData) {
-            let dataId: number = Number(reqCarData['id'])
+            reqCarData['id'] = Number(reqCarData['id'])
+            let dataId: number = reqCarData['id']
             return this.prisma.car.update({data: reqCarData, where: {id:dataId}})
       }
 }
