@@ -29,12 +29,6 @@
         <li class="nav-item">
           <a class="nav-link navbar-brand border" href="/users/add">Add User Data</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/update">Change User Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/delete">Delete User Data</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -52,7 +46,11 @@
           <li class="list-group-item"><span class="bold">Username:</span> {{user.username}}</li>
           <li class="list-group-item"><span class="bold">Bio:</span>  {{user.bio}}</li>
           <li class="list-group-item"><span class="bold">Age:</span>  {{user.age}}</li>
-          <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li>          
+          <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li> 
+          <li class="list-group-item">
+          <a href="/users/delete?id={{user.id}}"><button>Delete</button></a>
+          <a href="/users/update?id={{user.id}}"><button>Update</button></a>   
+          </li>      
         </ul> 
         </div>
         </div> 

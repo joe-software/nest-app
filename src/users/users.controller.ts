@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Render, Body } from '@nestjs/common';
+import { Controller, Get, Post, Render, Body, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 
@@ -23,17 +23,17 @@ export class UsersController {
 
     @Get('delete')
     @Render('delete-user')
-    async findAllForDeleteView() {
-        // route to service and await response (all entries in db) - then include as data sent to view
-        let data = await this.userService.findAll()
+    async findAllForDeleteView(@Query() query: {}) {
+         // route to service and await response entry for ID in query - then include as data sent to view
+        let data = await this.userService.findUserById(query)
         return {userData: data}
     }
 
     @Get('update')
     @Render('update-user')
-    async findAllForUpdateView() {
-        // route to service and await response (all entries in db) - then include as data sent to view
-        let data = await this.userService.findAll()
+    async findAllForUpdateView(@Query() query: {}) {
+        // route to service and await response entry for ID in query - then include as data sent to view
+        let data = await this.userService.findUserById(query)
         return {userData: data}
     }
    

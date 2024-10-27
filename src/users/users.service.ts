@@ -40,7 +40,10 @@ export class UsersService {
       reqUserData['age'] = Number(reqUserData['age'])
       let dataId: number = reqUserData['id']
       return this.prisma.user.update({data: reqUserData, where: {id:dataId}})
-  
+}
 
+async findUserById(requestId: {}){
+      let dataId: number = Number(requestId['id'])
+      return this.prisma.user.findUnique({where: {id:dataId}})
 }
   }
