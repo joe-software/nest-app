@@ -51,9 +51,9 @@
           <li class="list-group-item"><span class="bold">Username:</span> {{user.username}}</li>
           <li class="list-group-item"><span class="bold">Bio:</span>  {{user.bio}}</li>
           <li class="list-group-item"><span class="bold">Age:</span>  {{user.age}}</li>
-          <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li>      
+          <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li> 
+          <input  name="id" type="hidden" value="{{user.id}}">     
           <input type="submit" class="mx-3 m-2" value="Delete Post">
-          <input  name="mongoid" type="hidden" value="{{user._id}}">
         </ul>
         
       </form>  

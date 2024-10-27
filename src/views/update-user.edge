@@ -54,46 +54,46 @@
           <li class="list-group-item form-label">
             <span class="bold">Update username:</span>
             <label for="user-username-input"></label>
-            <input class="form-control" name="user-username-input" type="text"  value="{{user.username}}">
+            <input class="form-control" name="username" type="text"  value="{{user.username}}">
           </li>
 
           <li class="list-group-item"><span class="bold">Bio:</span>  {{user.bio}}</li>
           <li class="list-group-item form-label">
             <span class="bold">Update bio:</span>
-            <label for="user-bio-input"></label>
-            <input class="form-control" name="user-bio-input" type="text"  value="{{user.bio}}">
+            <label name="bio"></label>
+            <input class="form-control" name="bio" type="text"  value="{{user.bio}}">
           </li>
 
           <li class="list-group-item"><span class="bold">Age:</span>  {{user.age}}</li>
           <li class="list-group-item form-label">
             <span class="bold">Update age:</span>
             <label for="user-age-input"></label>
-            <input class="form-control" name="user-age-input" type="number"  value="{{user.age}}">
+            <input class="form-control" name="age" type="number"  value="{{user.age}}">
           </li>
 
           <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li>  
           <li class="list-group-item form-label">
             <span class="bold">Update user permission:</span>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="user-permission-input" value="Standard-Permission">
+                <input class="form-check-input" type="radio" name="permission" value="Standard-Permission">
                 <label class="form-check-label" for="User-Permission">
                     Standard-Permission
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="user-permission-input" value="Manager-Permission">
+                <input class="form-check-input" type="radio" name="permission" value="Manager-Permission">
                 <label class="form-check-label" for="Manager-Permission">
                     Manager-Permission
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="user-permission-input" value="Administrator-Permission">
+                <input class="form-check-input" type="radio" name="permission" value="Administrator-Permission">
                 <label class="form-check-label" for="Administrator-Permission">
                     Administrator-Permission
                 </label>
               </div>
           </li> 
-          <input  name="mongoid" type="hidden" value="{{user._id}}">
+          <input  name="id" type="hidden" value="{{user.id}}">
           <input type="submit" class="mx-3 m-2" value="Update Post">
 
         </ul> 

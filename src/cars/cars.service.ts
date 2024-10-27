@@ -24,9 +24,8 @@ export class CarsService {
         
           }
             // service which takes input data from @body and creates an object which is then saved as new data in db 
-            async create(data: Prisma.CarCreateInput) {
-                return this.prisma.car.create({data
-                });
+            async create(data: Prisma.CarCreateInput): Promise<Car> {
+                return this.prisma.car.create({data});
              
           }
 
