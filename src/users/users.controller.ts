@@ -18,7 +18,6 @@ export class UsersController {
     @Get('add')
     @Render('add-entry-user')
     emptyAddFunction(){
-
     }   
 
     @Get('delete')
@@ -43,7 +42,7 @@ export class UsersController {
     @Render('successful-edit-user')
     addAUser(@Body() createUserDto: CreateUserDto){
         this.userService.create(createUserDto)
-        return {status: 'updated'}
+        return {status: 'added'}
  }
 
     @Post('user-delete')
@@ -57,7 +56,7 @@ export class UsersController {
     @Render('successful-edit-user')
     updateAUser(@Body() CreateUserDto: CreateUserDto){
         this.userService.updateOneUser(CreateUserDto)
-        return  {status: 'updated'}
+        return  {status: 'edited'}
     }
 
             

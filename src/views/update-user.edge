@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>User Update Page</title>
+    <title>Update User Data</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,23 +43,17 @@
 
           <li class="list-group-item"><span class="bold">Username:</span> {{userData.username}}</li>
           <li class="list-group-item form-label">
-            <span class="bold">Update username:</span>
-            <label for="user-username-input"></label>
-            <input class="form-control" name="username" type="text"  value="{{userData.username}}">
+            <label class="bold">Update username: <input class="form-control" name="username" type="text"  value="{{userData.username}}"></label>
           </li>
 
           <li class="list-group-item"><span class="bold">Bio:</span>  {{userData.bio}}</li>
           <li class="list-group-item form-label">
-            <span class="bold">Update bio:</span>
-            <label name="bio"></label>
-            <input class="form-control" name="bio" type="text"  value="{{userData.bio}}">
+            <label name="bio" class="bold">Update bio: <input class="form-control" name="bio" type="text"  value="{{userData.bio}}"></label>
           </li>
 
           <li class="list-group-item"><span class="bold">Age:</span>  {{userData.age}}</li>
           <li class="list-group-item form-label">
-            <span class="bold">Update age:</span>
-            <label for="user-age-input"></label>
-            <input class="form-control" name="age" type="number"  value="{{userData.age}}">
+            <label class="bold">Update age: <input class="form-control" name="age" type="number"  value="{{userData.age}}"></label>
           </li>
 
           <li class="list-group-item"><span class="bold">Permission:</span>  {{userData.permission}}</li>  

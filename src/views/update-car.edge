@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Car Update</title>
+    <title>Update Car Data</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,21 +45,19 @@
           <li class="list-group-item"><span class="bold">Car Brand:</span> {{carData.brand}} </li>
           <li class="list-group-item">
             <span class="bold">
-              <label for="car-brand-update">Update car brand:</label>
-              <input name="brand" type="text" value="{{carData.brand}}">
+              <label>Update car brand: <input name="brand" type="text" value="{{carData.brand}}" /></label>
           </li>
 
           <li class="list-group-item"><span class="bold">Car Model:</span>  {{carData.model}}</li>
           <li class="list-group-item">
             <span class="bold">
-              <label for="car-brand-update">Update car model:</label>
-              <input  name="model" type="text" value="{{carData.model}}">
+              <label>Update car model: <input  name="model" type="text" value="{{carData.model}}"></label>
           </li>
 
           <li class="list-group-item"><span class="bold">Car Date:</span>  {{carData.date}}</li>
           <li class="list-group-item">
             <span class="bold">
-              <label for="car-brand-update">Update car date:</label>
+              <label for="">Update car date:</label>
               <input  name="date" type="date" value="{{carData.date}}">
           </li>
           
@@ -67,7 +65,7 @@
 
           <li class="list-group-item">
             <span class="bold">
-              <label for="car-brand-update">Update car colour:</label>
+              <label for="">Update car colour:</label>
               <input  name="colour" type="color" value="{{carData.colour}}">
           </li>
           <input  name="id" type="hidden" value="{{carData.id}}">
