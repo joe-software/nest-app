@@ -53,14 +53,14 @@
 
           <li class="list-group-item"><span class="bold">Age:</span>  {{userData.age}}</li>
           <li class="list-group-item form-label">
-            <label class="bold">Update age: <input class="form-control" name="age" type="number"  value="{{userData.age}}"></label>
+            <label class="bold">Update age: <input class="form-control" name="age" min="0" max="200" type="number"  value="{{userData.age}}"></label>
           </li>
 
           <li class="list-group-item"><span class="bold">Permission:</span>  {{userData.permission}}</li>  
           <li class="list-group-item form-label">
-            <span class="bold">Update user permission:</span>
+            <span class="bold">Update user permission (default = standard):</span>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="permission" value="Standard-Permission">
+                <input class="form-check-input" type="radio" name="permission" value="Standard-Permission" checked>
                 <label class="form-check-label" for="User-Permission">
                     Standard-Permission
                 </label>

@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Render, Body, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto, IdUserDto, UpdateUserDto } from './dto/user-app.dto';
 
 @Controller('users')
 export class UsersController {
@@ -22,17 +22,17 @@ export class UsersController {
 
     @Get('delete')
     @Render('delete-user')
-    async findAllForDeleteView(@Query() query: {}) {
+    async findAllForDeleteView(@Query() idUserDto: IdUserDto) {
          // route to service and await response entry for ID in query - then include as data sent to view
-        let data = await this.userService.findUserById(query)
+        let data = await this.userService.findUserById(idUserDto)
         return {userData: data}
     }
 
     @Get('update')
     @Render('update-user')
-    async findAllForUpdateView(@Query() query: {}) {
+    async findAllForUpdateView(@Query() idUserDto: IdUserDto) {
         // route to service and await response entry for ID in query - then include as data sent to view
-        let data = await this.userService.findUserById(query)
+        let data = await this.userService.findUserById(idUserDto)
         return {userData: data}
     }
    
@@ -47,15 +47,15 @@ export class UsersController {
 
     @Post('user-delete')
     @Render('successful-edit-user')
-    deleteAUser(@Body() body: {}){
-        this.userService.deleteOneUser(body)
+    deleteAUser(@Body() idUserDto: IdUserDto){
+        this.userService.deleteOneUser(idUserDto)
         return {status: 'deleted'}
     }
 
     @Post('user-update')
     @Render('successful-edit-user')
-    updateAUser(@Body() CreateUserDto: CreateUserDto){
-        this.userService.updateOneUser(CreateUserDto)
+    updateAUser(@Body() updateUserDto: UpdateUserDto){
+        this.userService.updateOneUser(updateUserDto)
         return  {status: 'edited'}
     }
 
