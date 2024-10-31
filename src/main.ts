@@ -12,7 +12,7 @@ async function bootstrap() {
 
   const edge = new Edge()
   // edge.mount(join(__dirname, '..', './src/views'))
-    app.setBaseViewsDir(join(__dirname, '..', '/src/views'));
+    app.setBaseViewsDir(join(__dirname, '..', 'views'));
     app.useStaticAssets(join(__dirname, '..', '/src/public'));
     app.engine('edge', (path, options, callback) =>
     edge

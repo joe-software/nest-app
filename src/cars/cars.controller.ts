@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Put, Body, Render, Param, Query, ConsoleLogger } from '@nestjs/common';
+import { Controller, Get, Post, Body, Render, Param, Query } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { CreateCarDto, IdCarDto, UpdateCarDto } from './dto/car-app.dto';
 
