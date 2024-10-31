@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { UserDataCollection } from 'src/users/schemas/user.schema';
+import { PrismaService } from '../prisma.service';
+import { User, Car, Prisma } from '@prisma/client';
 
 // create interface to be used when creating user data objects from request data
 interface UserDataInterface {
@@ -14,41 +13,37 @@ interface UserDataInterface {
 
 @Injectable()
 export class UsersService {
-    // include mongoose/schema information within class
-    constructor(@InjectModel(UserDataCollection.name) private userModel: Model<UserDataCollection>){}
+  
+    constructor(private prisma: PrismaService){}
 
     // service which requests and returns all user data from db - async so doesnt stop other processes and can wait for response and promise representsa the eventual completion
-    async findAll(): Promise<UserDataCollection[]> {
-        return this.userModel.find().exec();
-    
+    async findAll(): Promise<User []> {
+      return this.prisma.user.findMany({
+      });
       }
     
     // service which takes input data from @body and creates an object which is then saved as new data in db 
-    async create(reqUserData): Promise<UserDataCollection> {
-        let inputUserData: UserDataInterface = {
-            'username': reqUserData['user-username-input'],
-            'age': reqUserData['user-age-input'],
-            'bio': reqUserData['user-bio-input'],
-            'permission': reqUserData['user-permission-input']
-        }
-        const createdUser = new this.userModel(inputUserData);
-        return createdUser.save();
+    async create(data: Prisma.UserCreateInput) {
+      data['age'] = Number(data['age'])
+      return this.prisma.user.create({data});
+   
     }
 
     // service which takes input data from @body and deletes a data entry from db which matches the @body mongoid value 
-    async deleteOneUser(requestId): Promise<string> {
-    let deleteId: string = requestId['mongoid']
-    return this.userModel.findByIdAndDelete(deleteId)
+    async deleteOneUser(requestId): Promise<User>{
+      let dataId: number = Number(requestId['id'])
+      return this.prisma.user.delete({where: {id:dataId}})
   }
 
-  async updateOneUser(reqUserData): Promise<UserDataCollection> {
-    let putId: string = reqUserData['mongoid']
-    let updateUserData: UserDataInterface = {
-        'username': reqUserData['user-username-input'],
-        'age': reqUserData['user-age-input'],
-        'bio': reqUserData['user-bio-input'],
-        'permission': reqUserData['user-permission-input']
-    }
-    return this.userModel.findByIdAndUpdate(putId, updateUserData)
+  async updateOneUser(reqUserData){
+      reqUserData['id'] = Number(reqUserData['id'])
+      reqUserData['age'] = Number(reqUserData['age'])
+      let dataId: number = reqUserData['id']
+      return this.prisma.user.update({data: reqUserData, where: {id:dataId}})
+}
+
+async findUserById(requestId: {}){
+      let dataId: number = Number(requestId['id'])
+      return this.prisma.user.findUnique({where: {id:dataId}})
 }
   }

@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>User Data Home Page</title>
+    <title>Delete Car Data</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,40 +24,36 @@
             App Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users">All User Data</a>
+          <a class="nav-link navbar-brand border" href="/cars">All Car Data</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/add">Add User Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/update">Change User Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/delete">Delete User Data</a>
+          <a class="nav-link navbar-brand border" href="/cars/add">Add Car Data</a>
         </li>
       </ul>
     </div>
   </nav>
 
-  
 <div class="container">
-  <h1>All User Data</h1>
-  <h2>Use links at top of page to view edit options</h2>
-  <p class="text-danger">Please do not include any real data, this is a test project and the data is public</p>
-  <div class="row">
-     @each((user, index) in userData)
-    <div class="col-md-4">
-      <div class="my-2 p-1 card bg-light">
+  <h1>Delete car data</h1>
+ 
+      <div class="my-2 p-1 card primary">
+        <form method="POST" action="/cars/car-delete">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="bold">Username:</span> {{user.username}}</li>
-          <li class="list-group-item"><span class="bold">Bio:</span>  {{user.bio}}</li>
-          <li class="list-group-item"><span class="bold">Age:</span>  {{user.age}}</li>
-          <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li>          
-        </ul> 
+
+          <li class="list-group-item"><span class="bold">Car Brand:</span> {{carData.brand}} </li>
+
+          <li class="list-group-item"><span class="bold">Car Model:</span>  {{carData.model}}</li>
+
+          <li class="list-group-item"><span class="bold">Car Date:</span>  {{carData.date}}</li>
+          
+          <li class="list-group-item"><span class="bold">Car Colour:</span><div id="colour-patch" style="background-color: {{carData.colour}}" id="colour-patch"></div> </li>
+          <input type="submit" class="mx-3 m-2" value="Delete Post">
+          <input  name="id" type="hidden" value="{{carData.id}}">
+        </ul>
+        
+      </form>  
         </div>
-        </div> 
-      @end
-    </div>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

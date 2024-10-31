@@ -1,6 +1,6 @@
-import { Controller, Get, Post, Render, Body } from '@nestjs/common';
+import { Controller, Get, Post, Render, Body, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto, IdUserDto, UpdateUserDto } from './dto/user-app.dto';
 
 @Controller('users')
 export class UsersController {
@@ -18,22 +18,21 @@ export class UsersController {
     @Get('add')
     @Render('add-entry-user')
     emptyAddFunction(){
-
     }   
 
     @Get('delete')
     @Render('delete-user')
-    async findAllForDeleteView() {
-        // route to service and await response (all entries in db) - then include as data sent to view
-        let data = await this.userService.findAll()
+    async findAllForDeleteView(@Query() idUserDto: IdUserDto) {
+         // route to service and await response entry for ID in query - then include as data sent to view
+        let data = await this.userService.findUserById(idUserDto)
         return {userData: data}
     }
 
     @Get('update')
     @Render('update-user')
-    async findAllForUpdateView() {
-        // route to service and await response (all entries in db) - then include as data sent to view
-        let data = await this.userService.findAll()
+    async findAllForUpdateView(@Query() idUserDto: IdUserDto) {
+        // route to service and await response entry for ID in query - then include as data sent to view
+        let data = await this.userService.findUserById(idUserDto)
         return {userData: data}
     }
    
@@ -43,21 +42,21 @@ export class UsersController {
     @Render('successful-edit-user')
     addAUser(@Body() createUserDto: CreateUserDto){
         this.userService.create(createUserDto)
-        return {status: 'updated'}
+        return {status: 'added'}
  }
 
     @Post('user-delete')
     @Render('successful-edit-user')
-    deleteAUser(@Body() body: {}){
-        this.userService.deleteOneUser(body)
+    deleteAUser(@Body() idUserDto: IdUserDto){
+        this.userService.deleteOneUser(idUserDto)
         return {status: 'deleted'}
     }
 
     @Post('user-update')
     @Render('successful-edit-user')
-    updateAUser(@Body() CreateUserDto: CreateUserDto){
-        this.userService.updateOneUser(CreateUserDto)
-        return  {status: 'updated'}
+    updateAUser(@Body() updateUserDto: UpdateUserDto){
+        this.userService.updateOneUser(updateUserDto)
+        return  {status: 'edited'}
     }
 
             

@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express'
 import { AppModule } from './app.module';
 import { join } from 'path';
+import { ValidationPipe } from '@nestjs/common';
 
 import { Edge } from 'edge.js'
 
@@ -11,7 +12,7 @@ async function bootstrap() {
 
   const edge = new Edge()
   // edge.mount(join(__dirname, '..', './src/views'))
-    app.setBaseViewsDir(join(__dirname, '..', '/src/views'));
+    app.setBaseViewsDir(join(__dirname, '..', 'views'));
     app.useStaticAssets(join(__dirname, '..', '/src/public'));
     app.engine('edge', (path, options, callback) =>
     edge
@@ -20,6 +21,7 @@ async function bootstrap() {
       .then((rendered) => callback(null, rendered))
   );
   app.setViewEngine('edge')
+  app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT || 3000);
   
 }

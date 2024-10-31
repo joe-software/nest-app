@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Delete use Data</title>
+    <title>Succesful Car Submission</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light border">
     <div class="">
       <ul class="navbar-nav px-2">
         <li class="nav-item">
@@ -29,39 +29,13 @@
         <li class="nav-item">
           <a class="nav-link navbar-brand border" href="/users/add">Add User Data</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/update">Change User Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-brand border" href="/users/delete">Delete User Data</a>
-        </li>
       </ul>
     </div>
   </nav>
+<div class="mx-4 px-4" >
+  <p class="mx-4 px-4">You have successfully {{status}} the data - use the top nav bar to choose what to do next.</p>
+</div>
 
-
-<div class="container">
-  <h1>Delete user data</h1>
-  <div class="row">
-     @each((user, index) in userData)
-    <div class="col-md-4">
-      <div class="my-2 p-1 card primary">
-        <form method="POST" action="/users/user-delete">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="bold">Username:</span> {{user.username}}</li>
-          <li class="list-group-item"><span class="bold">Bio:</span>  {{user.bio}}</li>
-          <li class="list-group-item"><span class="bold">Age:</span>  {{user.age}}</li>
-          <li class="list-group-item"><span class="bold">Permission:</span>  {{user.permission}}</li>      
-          <input type="submit" class="mx-3 m-2" value="Delete Post">
-          <input  name="mongoid" type="hidden" value="{{user._id}}">
-        </ul>
-        
-      </form>  
-        </div>
-        </div> 
-      @end
-    </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
